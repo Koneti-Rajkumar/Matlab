@@ -1,1 +1,26 @@
-
+clear all; 
+b=[1];
+a=[1 -1 0.9];
+n=0:3:100;
+x1=1.*(n==0);
+h1=filter(b,a,x1);
+subplot(3,1,1);
+stem(h1);
+xlabel('n');
+ylabel('h(n)');
+ 
+x2=1.*(n>=0)+0.*(n<0);
+h2=filter(b,a,x2);
+subplot(3,1,2);
+stem(h2);
+xlabel('n');
+ylabel('h(n)');
+n=0:1:5*pi;
+x=sin(n);
+h3=filter(b,a,x);
+subplot(3,1,3);
+stem(h3);
+xlabel('n');
+ylabel('h(n)');
+figure;
+zplane(b,a);
